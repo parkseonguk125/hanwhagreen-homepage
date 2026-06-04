@@ -1,0 +1,9 @@
+﻿.git
+.gitignore
+*.md
+.cursor
+terminals
+node_modules
+frontend/node_modules
+frontend/dist
+dist

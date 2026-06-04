@@ -1,0 +1,16 @@
+﻿services:
+  web:
+    build: .
+    image: hanwhagreen-web:local
+    container_name: hanwhagreen-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/http.d/default.conf:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
